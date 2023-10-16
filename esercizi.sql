@@ -70,3 +70,10 @@ SELECT SUM(fatture.importo) AS totale, clienti.regione_residenza
 FROM fatture LEFT JOIN clienti
 ON fatture.id_cliente = clienti.numero_cliente
 GROUP BY clienti.regione_residenza;
+
+SELECT COUNT(DISTINCT clienti) as num_fatture, EXTRACT(YEAR FROM clienti.data_nascita) as anno
+FROM fatture LEFT JOIN clienti 
+ON fatture.id_cliente = clienti.numero_cliente
+WHERE fatture.importo > 50 
+GROUP BY anno
+HAVING EXTRACT(YEAR FROM clienti.data_nascita) = 1980
