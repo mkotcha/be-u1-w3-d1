@@ -50,3 +50,10 @@ CREATE TABLE public.fornitori
 
 
 SELECT nome,cognome FROM clienti WHERE data_nascita BETWEEN '1-1-1982' AND '31-12-1982'
+
+select numero_fattura from fatture where iva='22'
+
+
+SELECT COUNT(*) AS count_fatture, EXTRACT(YEAR FROM data_fattura) AS anno,  SUM(importo) AS totale_fatturato
+FROM fatture
+GROUP BY anno;
