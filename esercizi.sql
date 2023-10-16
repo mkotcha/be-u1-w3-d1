@@ -61,8 +61,12 @@ SELECT extract(YEAR FROM data_fattura) AS anno,
 FROM fatture
 WHERE tipologia='a'
 GROUP BY anno
-HAVING count(*)>2
+HAVING count(*)>2;
 
 SELECT * FROM fatture LEFT JOIN fornitori
-ON fatture.numero_fornitore = fornitori.numero_fornitore
+ON fatture.numero_fornitore = fornitori.numero_fornitore;
 
+SELECT SUM(fatture.importo) AS totale, clienti.regione_residenza
+FROM fatture LEFT JOIN clienti
+ON fatture.id_cliente = clienti.numero_cliente
+GROUP BY clienti.regione_residenza;
