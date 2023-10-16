@@ -53,7 +53,12 @@ WHERE in_produzione = 'true' OR in_commercio = 'true';
 SELECT COUNT(*) AS count_fatture,
     EXTRACT(YEAR FROM data_fattura) AS anno
 FROM fatture
-WHERE iva = '22'
+WHERE iva = '20'
 GROUP BY anno;
 
-
+SELECT extract(YEAR FROM data_fattura) AS anno,
+    count(*) AS num
+FROM fatture
+WHERE tipologia='a'
+GROUP BY anno
+HAVING count(*)>2
