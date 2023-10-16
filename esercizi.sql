@@ -60,7 +60,7 @@ GROUP BY anno;
 SELECT extract(YEAR FROM data_fattura) AS anno,
     count(*) AS num
 FROM fatture
-WHERE tipologia='a'
+WHERE tipologia ILIKE 'a'
 GROUP BY anno
 HAVING count(*)>2;
 
