@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS public.fatture (
     regione_residenza text NOT NULL,
     PRIMARY KEY (numero_fornitore)
 );
+
 SELECT nome, cognome
 FROM clienti
 WHERE data_nascita BETWEEN '1-1-1982' AND '31-12-1982';
