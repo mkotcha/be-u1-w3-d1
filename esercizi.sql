@@ -76,4 +76,8 @@ FROM fatture LEFT JOIN clienti
 ON fatture.id_cliente = clienti.numero_cliente
 WHERE fatture.importo > 50 
 GROUP BY anno
-HAVING EXTRACT(YEAR FROM clienti.data_nascita) = 1980
+HAVING EXTRACT(YEAR FROM clienti.data_nascita) = 1980;
+
+SELECT CONCAT(clienti.nome, ' - ', clienti.cognome) AS Denominazione
+FROM clienti
+WHERE regione_residenza ILIKE 'lombardia';
