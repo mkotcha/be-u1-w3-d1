@@ -62,3 +62,7 @@ FROM fatture
 WHERE tipologia='a'
 GROUP BY anno
 HAVING count(*)>2
+
+SELECT * FROM fatture LEFT JOIN fornitori
+ON fatture.numero_fornitore = fornitori.numero_fornitore
+
