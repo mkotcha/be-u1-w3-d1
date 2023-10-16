@@ -32,22 +32,28 @@ CREATE TABLE IF NOT EXISTS public.fatture (
     regione_residenza text NOT NULL,
     PRIMARY KEY (numero_fornitore)
 );
-SELECT nome,
-    cognome
+SELECT nome, cognome
 FROM clienti
-WHERE data_nascita BETWEEN '1-1-1982' AND '31-12-1982'
-select numero_fattura
-from fatture
-where iva = '22'
+WHERE data_nascita BETWEEN '1-1-1982' AND '31-12-1982';
+
+SELECT numero_fattura
+FROM fatture
+WHERE iva = '22';
+
 SELECT COUNT(*) AS count_fatture,
-    EXTRACT(
-        YEAR
-        FROM data_fattura
-    ) AS anno,
+    EXTRACT(YEAR FROM data_fattura) AS anno,
     SUM(importo) AS totale_fatturato
 FROM fatture
 GROUP BY anno;
+
 SELECT *
 FROM prodotti
-WHERE in_produzione = 'true'
-    OR in_commercio = 'true'
+WHERE in_produzione = 'true' OR in_commercio = 'true';
+
+SELECT COUNT(*) AS count_fatture,
+    EXTRACT(YEAR FROM data_fattura) AS anno
+FROM fatture
+WHERE iva = '22'
+GROUP BY anno;
+
+
